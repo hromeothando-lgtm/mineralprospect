@@ -1,0 +1,51 @@
+# Data — never commit large rasters or raw GeoTIFFs
+data/raw/*.tif
+data/raw/*.tiff
+data/raw/*.geojson
+data/processed/*.tif
+data/processed/*.tiff
+
+# Keep sample CSVs and small processed files
+!data/samples/*.csv
+!data/processed/*.csv
+!data/processed/*.npy
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+.Python
+*.egg-info/
+dist/
+build/
+.eggs/
+
+# Environments
+.env
+.venv
+env/
+venv/
+
+# Jupyter
+.ipynb_checkpoints/
+*.ipynb_checkpoints
+
+# PyCharm
+.idea/
+
+# Outputs — commit figures and maps but not model weights (too large)
+outputs/models/*.pt
+outputs/models/*.pth
+outputs/models/*.ckpt
+!outputs/figures/
+!outputs/maps/
+!outputs/uncertainty/
+
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# MLflow / Optuna
+mlruns/
+optuna_studies/
