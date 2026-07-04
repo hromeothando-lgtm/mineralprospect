@@ -1,0 +1,74 @@
+dep_id,site_name,country,state,commod1,commod2,commod3,dep_type,latitude,longitude
+10021411,Blanket Mine,Zimbabwe,,Gold,,,,-18.99706,29.8732
+10021412,Freda/Rebecca Mine,Zimbabwe,,Gold,,,,-18.99706,29.8732
+10021413,Arcturus/Mazase/Munel/Inya Mine,Zimbabwe,,"Silver, Gold, Copper",,,,-18.99706,29.8732
+10021414,Renco Mine,Zimbabwe,,"Gold, Copper",,,,-18.99706,29.8732
+10039238,Athens Mine,Zimbabwe,,"Gold, Copper",Silver,"Platinum, Nickel",,-19.31361,30.58468
+10081103,Pickstone,Zimbabwe,,Gold,Gemstone,,Unknown,-17.99701,30.00136
+10084811,Mashaba,Zimbabwe,,Asbestos,,,,-20.0169,30.29136
+10084812,Shabani,Zimbabwe,,Asbestos,,,,-20.19689,30.01803
+10106681,Gaths Mine,Zimbabwe,,Asbestos,,,,-18.99706,29.8732
+10107389,Dalny,Zimbabwe,,Gold,,"Copper, Arsenic, Tungsten",,-18.16368,30.25134
+10109569,Wedza Mine,Zimbabwe,,"Platinum, Nickel","Iridium, Palladium, Gold, Copper",,,-20.28772,29.8097
+10134444,Cedric Mine,Zimbabwe,,,,"Copper, Gold",,-17.49706,30.00135
+10134655,Venice,Zimbabwe,,Gold,Silver,,,-18.4789,29.71245
+10134788,Golden Valley,Zimbabwe,,Gold,,,,-18.21921,29.80965
+10134896,Old Nic,Zimbabwe,,Gold,,,,-20.1822,28.63608
+10134910,Blanket,Zimbabwe,,Gold,Silver,,,-20.83017,28.57829
+10134968,How,Zimbabwe,,Gold,Silver,,,-20.2469,28.73468
+10134988,Three Cheers,Zimbabwe,,Gold,,,,-18.17201,30.53464
+10135131,Royal Family,Zimbabwe,,Gold,,,,-20.51358,29.26468
+10135272,Temeraire,Zimbabwe,,Asbestos,,,,-20.0386,30.52356
+10142552,Isabella,Zimbabwe,,Gold,,,,-19.64693,28.90137
+10158753,How,Zimbabwe,,Gold,,Silver,,-20.2552,28.73198
+10158678,Golden Quarry,Zimbabwe,Midlands,Gold,,,,-19.41364,29.83466
+10158860,Shabanie,Zimbabwe,,Asbestos,,,,-20.29688,30.13466
+10158904,Athens,Zimbabwe,,Gold,"Copper, Silver",,,-19.29274,30.52075
+10159102,Boss,Zimbabwe,,Asbestos,,,,-20.12189,30.49306
+10159118,Mazoe Maz0we,Zimbabwe,,Gold,Silver,,,-17.49705,30.92633
+10159289,Dumbozuro Claims,Zimbabwe,,,,"Copper, Molybdenum, Silver",,-17.09708,30.67133
+10159811,Kudu,Zimbabwe,,Asbestos,,,,-20.29689,28.96808
+10182972,Barberton,Zimbabwe,,Gold,,,,-19.79272,28.75558
+10183057,Shamva,Zimbabwe,,Gold,Silver,,,-17.33036,31.57772
+10183107,Elvington,Zimbabwe,Midlands,Gold,,,,-18.84417,29.73886
+10183358,Marvel,Zimbabwe,,Gold,,,,-20.51358,29.46807
+10183416,Connemara,Zimbabwe,Midlands,Gold,,,,-19.16635,29.82636
+10183450,Dainy Operations,Zimbabwe,Midlands,Gold,,,,-18.26371,29.91805
+10183559,Pickstone/Peerless Open Pit Project,Zimbabwe,,Gold,,,,-18.3428,30.18665
+10183594,Dalny/Arlandzer/Turk,Zimbabwe,,Gold,Silver,,,-18.05262,29.84715
+10183601,Gondia Mine,Zimbabwe,,,,"Copper, Gold",,-17.49706,29.60135
+10184129,Golden Kopje,Zimbabwe,,Gold,,,,-17.49705,30.04024
+10207359,Arcturus,Zimbabwe,,Gold,Silver,,,-17.77623,31.34713
+10207396,Redwing/Old West Mines,Zimbabwe,Manicaland,Gold,Silver,,,-18.89695,32.66802
+10207500,Emerald Mine,Zimbabwe,,,,"Copper, Gold",,-17.59705,29.25135
+10207516,Commoner,Zimbabwe,,Gold,,,,-18.422,29.44306
+10207709,Grey Cat Claims,Zimbabwe,,,,"Copper, Molybdenum, Silver",,-17.31707,30.04134
+10207832,Inyati,Zimbabwe,Manicaland,Copper,"Gold, Silver",,,-18.21699,32.23132
+10207853,Sabi Consolidated Mines,Zimbabwe,,Gold,,,,-20.35248,30.18056
+10207971,Sebakwe,Zimbabwe,Midlands,Gold,,,,-18.85257,29.77076
+10208020,Felixburg Gold Belt,Zimbabwe,,Gold,,,,-19.43023,30.83465
+10231519,Indarama,Zimbabwe,Midlands,Gold,,,,-18.93027,29.81806
+10231632,Gath's,Zimbabwe,,Asbestos,,,,-20.0302,30.53466
+10231679,Bell&Riverlea,Zimbabwe,Midlands,Gold,,,,-18.93867,29.72636
+10231740,Cresent Mine,Zimbabwe,,,,"Copper, Gold",,-16.7971,30.10134
+10231750,Montana Mine,Zimbabwe,,,,"Gold, Copper",,-16.7971,30.10134
+10231773,Muni Claims,Zimbabwe,,,,"Copper, Molybdenum, Silver",,-17.16708,30.06134
+10231961,Hartley,Zimbabwe,Midlands,"Platinum, Palladium","Copper, Gold, Nickel","Ruthenium, Rhodium, Cobalt, Iridium, Osmium",,-18.07202,30.45134
+10232008,Vubachikwe,Zimbabwe,,Gold,,,,-20.84906,28.90418
+10232074,Freda and Rebecca,Zimbabwe,,Gold,,,,-17.31176,31.34742
+10232115,Patchway/Brompton,Zimbabwe,,Gold,Silver,,,-18.25531,29.80965
+10232203,Dawn,Zimbabwe,,Gold,,,,-19.81082,28.73198
+10255844,Mangula,Zimbabwe,,Copper,"Gold, Silver",,,-16.88039,30.16384
+10255930,Long John,Zimbabwe,,Gold,,,,-20.96355,29.06808
+10255965,Torleven,Zimbabwe,Midlands,Gold,,,,-18.84417,29.73886
+10255972,Rezende,Zimbabwe,Manicaland,Gold,,,,-18.88025,32.70962
+10256164,Globe&Phoenix,Zimbabwe,Midlands,Gold,,,,-18.92197,29.79306
+10280150,Cam & Motor,Zimbabwe,,Gold,,,,-18.3303,29.98195
+10280168,Redwing/Oldwest,Zimbabwe,Manicaland,Gold,Silver,,,-18.88585,32.67632
+10280273,Eiffel Flats Tailings Project,Zimbabwe,,Gold,,,,-18.30261,29.93195
+10280585,King,Zimbabwe,,Asbestos,,,,-20.08019,30.53466
+10280821,Renco,Zimbabwe,,Gold,"Copper, Silver",,,-20.62606,31.17495
+10304613,Kanyembe,Zimbabwe,,Gold,,,,-18.472,29.73465
+10304657,Gaica,Zimbabwe,Midlands,Gold,,,,-18.94137,29.80136
+10304931,Connaught,Zimbabwe,,Gold,,,,-17.44705,30.91803
+60000743,Chiredzi District,Zimbabwe,,"Tungsten, Silver, Gold, Copper",,,VEIN/STOCKWORK,-21.00373,32.16944
