@@ -1,0 +1,236 @@
+COMMENT AUDIT REPORT
+Total files with comments scanned. Total comment lines found: 193
+
+
+================================================================================
+FILE: LSI_feature_engineering_.ipynb  (40 comment lines)
+================================================================================
+  [cell 1, line 3] # -----------------------------------------------------------------------------
+  [cell 1, line 4] # 1. DEPENDENCY INSTALLATION
+  [cell 1, line 5] # -----------------------------------------------------------------------------
+  [cell 1, line 10] # -----------------------------------------------------------------------------
+  [cell 1, line 11] # 2. IMPORTS
+  [cell 1, line 12] # -----------------------------------------------------------------------------
+  [cell 1, line 23] # -----------------------------------------------------------------------------
+  [cell 1, line 24] # 3. ENVIRONMENT TUNING
+  [cell 1, line 25] # -----------------------------------------------------------------------------
+  [cell 1, line 29] # -----------------------------------------------------------------------------
+  [cell 1, line 30] # 4. CONFIGURATION
+  [cell 1, line 31] # -----------------------------------------------------------------------------
+  [cell 1, line 53] # -----------------------------------------------------------------------------
+  [cell 1, line 54] # 5. GEE AUTHENTICATION
+  [cell 1, line 55] # -----------------------------------------------------------------------------
+  [cell 1, line 64] # -----------------------------------------------------------------------------
+  [cell 1, line 65] # 6. MOUNT GOOGLE DRIVE
+  [cell 1, line 66] # -----------------------------------------------------------------------------
+  [cell 1, line 73] # -----------------------------------------------------------------------------
+  [cell 1, line 74] # 7. LSI MATH — v3: NaN-AWARE WINDOWED DENSITY
+  [cell 1, line 75] # -----------------------------------------------------------------------------
+  [cell 1, line 92] # uniform_filter computes a MEAN over the window; multiplying by
+  [cell 1, line 93] # w*w converts it back to a SUM, which we need for the masked
+  [cell 1, line 94] # ratio below.
+  [cell 1, line 101] # Only mark NaN where there was truly zero valid data in the
+  [cell 1, line 102] # entire window (e.g. deep inside a large cloud gap) — not just
+  [cell 1, line 103] # because one pixel nearby was masked.
+  [cell 1, line 141] # -----------------------------------------------------------------------------
+  [cell 1, line 142] # 8. SINGLE-TILE WORKER
+  [cell 1, line 143] # -----------------------------------------------------------------------------
+  [cell 1, line 187] # Diagnostic: confirm this tile/band actually produced variance
+  [cell 1, line 233] # -----------------------------------------------------------------------------
+  [cell 1, line 234] # 9. RESUME HELPER
+  [cell 1, line 235] # -----------------------------------------------------------------------------
+  [cell 1, line 243] # -----------------------------------------------------------------------------
+  [cell 1, line 244] # 10. MAIN EXECUTION LOOP
+  [cell 1, line 245] # -----------------------------------------------------------------------------
+  [cell 1, line 280] # -----------------------------------------------------------------------------
+  [cell 1, line 281] # 11. BACKUP TO GOOGLE DRIVE
+  [cell 1, line 282] # -----------------------------------------------------------------------------
+
+================================================================================
+FILE: audit_comment.py  (2 comment lines)
+================================================================================
+  [35] if "#" in line:
+  [83] if "#" in stripped:
+
+================================================================================
+FILE: src/data/download_landsat.ipynb  (21 comment lines)
+================================================================================
+  [cell 0, line 3] # Initialise the Earth Engine connection using your registered project.
+  [cell 0, line 4] # This must be called before any ee.* operations.
+  [cell 1, line 1] # Bounding box: [west, south, east, north] in decimal degrees
+  [cell 1, line 2] # Covers the Zimbabwe with surrounding context
+  [cell 2, line 1] # Dry season date range — May to October, across five years
+  [cell 2, line 4] DRY_MONTHS = [5, 6, 7, 8, 9, 10]  # May through October
+  [cell 2, line 6] # Bands to keep — SWIR-heavy selection for geological mapping
+  [cell 2, line 9] # Human-readable names for the bands (assigned after selection)
+  [cell 3, line 12] dilated_cloud = qa.bitwiseAnd(1 << 1).eq(0)   # Bit 1: Dilated Cloud
+  [cell 3, line 13] cirrus        = qa.bitwiseAnd(1 << 2).eq(0)   # Bit 2: Cirrus
+  [cell 3, line 14] cloud         = qa.bitwiseAnd(1 << 3).eq(0)   # Bit 3: Cloud
+  [cell 3, line 15] cloud_shadow  = qa.bitwiseAnd(1 << 4).eq(0)   # Bit 4: Cloud Shadow
+  [cell 3, line 17] cloud_confidence  = qa.rightShift(8).bitwiseAnd(3)   # Bits 8-9
+  [cell 3, line 20] shadow_confidence = qa.rightShift(10).bitwiseAnd(3)  # Bits 10-11
+  [cell 3, line 27] # SR (optical) bands use one scale/offset; thermal uses a different one — must be split
+  [cell 4, line 12] # Load Landsat 8 and 9 Surface Reflectance Tier 1 collections
+  [cell 4, line 16] # Merge both collections into one
+  [cell 5, line 1] # Reduce the collection to a single image using the median
+  [cell 5, line 4] # Confirm the output band names
+  [cell 7, line 1] # GEE objects live on Google's servers, not in local memory,
+  [cell 7, line 2] # so there is nothing to del. We just release the local Python references.
+
+================================================================================
+FILE: src/data/download_landsat_median.ipynb  (8 comment lines)
+================================================================================
+  [cell 5, line 12] dilated_cloud = qa.bitwiseAnd(1 << 1).eq(0)   # Bit 1: Dilated Cloud
+  [cell 5, line 13] cirrus        = qa.bitwiseAnd(1 << 2).eq(0)   # Bit 2: Cirrus
+  [cell 5, line 14] cloud         = qa.bitwiseAnd(1 << 3).eq(0)   # Bit 3: Cloud
+  [cell 5, line 15] cloud_shadow  = qa.bitwiseAnd(1 << 4).eq(0)   # Bit 4: Cloud Shadow
+  [cell 5, line 17] cloud_confidence  = qa.rightShift(8).bitwiseAnd(3)   # Bits 8-9
+  [cell 5, line 20] shadow_confidence = qa.rightShift(10).bitwiseAnd(3)  # Bits 10-11
+  [cell 5, line 27] # SR (optical) bands use one scale/offset; thermal uses a different one — must be split
+  [cell 8, line 11] #task.start()
+
+================================================================================
+FILE: src/data/download_mrds1.ipynb  (35 comment lines)
+================================================================================
+  [cell 2, line 6] # Navigate from the notebook's directory up to the repo root
+  [cell 2, line 9] # Input: raw MRDS CSV (downloaded from USGS and placed here manually)
+  [cell 2, line 12] # Output: the cleaned, filtered GeoJSON we are building
+  [cell 2, line 15] # Create the output directory if it does not already exist.
+  [cell 2, line 16] # parents=True: also create any missing parent folders.
+  [cell 2, line 17] # exist_ok=True: do nothing (no error) if the folder already exists.
+  [cell 8, line 3] # Build one boolean mask per commodity column
+  [cell 8, line 8] # Keep a row if it matches in ANY of the three columns (OR logic)
+  [cell 10, line 2] 'dep_id',        # MRDS unique deposit identifier
+  [cell 10, line 3] 'site_name',     # Name of the deposit or mine
+  [cell 10, line 4] 'country',       # Should all be Zimbabwe after our filter
+  [cell 10, line 5] 'state',         # Province/region within Zimbabwe
+  [cell 10, line 6] 'commod1',       # Primary commodity
+  [cell 10, line 7] 'commod2',       # Secondary commodity
+  [cell 10, line 8] 'commod3',       # Tertiary commodity
+  [cell 10, line 9] 'dep_type',        # Deposit type (e.g. 'lode gold', 'greenstone belt')
+  [cell 10, line 10] 'latitude',  # Latitude in decimal degrees (WGS84)
+  [cell 10, line 11] 'longitude', # Longitude in decimal degrees (WGS84)
+  [cell 10, line 14] # Only keep columns that actually exist in this MRDS export
+  [cell 12, line 3] # Step A: drop rows where either coordinate is NaN
+  [cell 12, line 8] # Step B: Zimbabwe bounding box
+  [cell 12, line 12] # All four conditions must be True (AND logic), so we use & between each one.
+  [cell 12, line 13] # Parentheses around each condition are required when using & in pandas —
+  [cell 12, line 14] # without them Python evaluates & before == and gives wrong results.
+  [cell 14, line 1] # Build a Point geometry for every row: Point(longitude, latitude)
+  [cell 14, line 7] # Convert to GeoDataFrame
+  [cell 14, line 8] # geometry='geometry' tells geopandas which column holds the shapes
+  [cell 14, line 9] # crs='EPSG:4326' declares WGS84 geographic coordinates
+  [cell 18, line 3] # Confirm the file was written and show its size on disk
+  [cell 19, line 1] # Release the GeoDataFrame and all intermediate DataFrames from memory.
+  [cell 19, line 2] # This is good practice at the end of a notebook — especially on a machine
+  [cell 19, line 3] # with limited RAM — because Jupyter keeps all variables alive until you
+  [cell 19, line 4] # explicitly delete them or restart the kernel.
+  [cell 19, line 8] # Force Python's garbage collector to release the freed memory immediately
+  [cell 19, line 9] # rather than waiting for it to do so on its own schedule.
+
+================================================================================
+FILE: src/data/download_sentinal.ipynb  (18 comment lines)
+================================================================================
+  [cell 0, line 8] # Date ranges
+  [cell 0, line 14] # Band mapping
+  [cell 1, line 1] # ---------------------------------------------------------------------
+  [cell 1, line 2] # 1. Join & Cloud Masking function (reused for both composites)
+  [cell 1, line 3] # ---------------------------------------------------------------------
+  [cell 1, line 19] # ---------------------------------------------------------------------
+  [cell 1, line 20] # 2. Core function to build a median composite for any period
+  [cell 1, line 21] # ---------------------------------------------------------------------
+  [cell 1, line 35] # Load surface reflectance and cloud probability collections
+  [cell 1, line 45] # Join the two collections
+  [cell 1, line 48] # Optionally filter by calendar month (e.g., May-Oct for dry season)
+  [cell 1, line 52] # Apply cloud masking and compute median
+  [cell 2, line 1] # Build the dry-season composite (May–October)
+  [cell 2, line 6] month_range=(5, 10)  # explicitly keep only May-Oct
+  [cell 2, line 11] # Export task
+  [cell 3, line 1] # Build the full-year composite (all months)
+  [cell 3, line 6] month_range=None  # no month filter → uses the entire date range
+  [cell 3, line 11] # Export task
+
+================================================================================
+FILE: src/data/feature_engineering.js  (17 comment lines)
+================================================================================
+  [1] // ============================================================
+  [2] // FractalProspectNet v4 — Tiled feature_stack export to GEE Assets (v2, fixed tile count)
+  [3] // ============================================================
+  [4] // ---- 1. Zimbabwe boundary (actual country geometry, not bounding box) ----
+  [8] // ---- 2. Load existing feature_stack, force Float32 everywhere ----
+  [11] // ---- 3. Clip to actual country geometry ----
+  [15] // ---- 4. Bounding box corners ----
+  [23] // ---- 5. Build coarser 1.0 degree grid, KEEP ONLY tiles with real overlap ----
+  [24] var tileDeg = 1.0; // ~110km x 110km tiles — comfortably under EEException limits
+  [25] var minOverlapKm2 = 50; // drop slivers / near-empty edge tiles
+  [57] // ---- 6. Submit export tasks for each real tile ----
+  [72] // ---- 7. Optional later step: mosaic all tile assets for reference ----
+  [73] // var tileAssetIds = tileTasks.map(function(t) {
+  [74] //   return 'projects/mineral-prospectivity-zim/assets/tiles/feature_stack_tile_' + t.index;
+  [75] // });
+  [76] // var tileCollection = ee.ImageCollection(tileAssetIds);
+  [77] // var mosaicked = tileCollection.mosaic();
+
+================================================================================
+FILE: src/data/sanity_test.ipynb  (6 comment lines)
+================================================================================
+  [cell 0, line 6] # Initialize with the project that owns your asset
+  [cell 0, line 9] # Load your dry-season composite
+  [cell 0, line 12] # Find the 373K hot pixel (fast)
+  [cell 0, line 32] # Show map directly on that point
+  [cell 1, line 2] #checks if the data on the landsat dry season dataset was properly masked .
+  [cell 2, line 2] #checks if the mask worked on landsat median.
+
+================================================================================
+FILE: src/features/Negetives_extraction.ipynb  (18 comment lines)
+================================================================================
+  [cell 1, line 1] # Load assets
+  [cell 1, line 5] # Zimbabwe bounding box
+  [cell 1, line 8] # Build 15km exclusion buffer around all 61 deposit points
+  [cell 1, line 11] # Build exclusion mask using paint() — 1 inside buffer, 0 outside, then invert
+  [cell 2, line 1] # Select the six ND indices
+  [cell 2, line 9] # Unfavourability score — higher = more unlike mineralised ground
+  [cell 2, line 19] # Apply exclusion mask
+  [cell 3, line 1] # Sample negatives directly — no strata, pure random sample from unmasked pixels
+  [cell 3, line 2] # outside the 15km exclusion buffer, biased toward high unfavourability
+  [cell 3, line 4] # Weight sampling by unfav score — use it as a probability band
+  [cell 3, line 7] # Add weight + full feature stack, mask to exclusion zone
+  [cell 3, line 10] # Random sample — 400 points, then we'll take top 325 by unfav score on the client side
+  [cell 4, line 1] # unmask(0) fills cloud/no-data pixels so no deposit points are dropped
+  [cell 4, line 4] # Get band names for column selection
+  [cell 4, line 7] # Sample all 35 band values at the 61 MRDS deposit locations
+  [cell 4, line 15] # Drop unfav_strata from negatives — keep only band columns + label
+  [cell 4, line 18] # Merge
+  [cell 4, line 21] # Export to Drive
+
+================================================================================
+FILE: src/features/feature_engineering.ipynb  (28 comment lines)
+================================================================================
+  [cell 2, line 1] # ====== Simple ratio indices (classic Crozier / USGS style) ======
+  [cell 2, line 2] s2_ioi   = s2.select('Red').divide(s2.select('Blue')).rename('S2_IOI')          # Ferric iron
+  [cell 2, line 3] s2_fii   = s2.select('SWIR1').divide(s2.select('RE4')).rename('S2_FII')          # Ferrous iron (red‑edge variant)
+  [cell 2, line 4] s2_ci    = s2.select('SWIR1').divide(s2.select('SWIR2')).rename('S2_CI')         # Clay (Al‑OH)
+  [cell 2, line 5] s2_carbi = s2.select('SWIR2').divide(s2.select('SWIR1')).rename('S2_CarbI')     # Carbonate (CO₃)
+  [cell 2, line 7] # ====== Normalised‑difference versions (additional features) ======
+  [cell 2, line 11] # Carbonate ND would be exactly -CI_nd; omitted to avoid perfect collinearity.
+  [cell 2, line 13] # ====== Vegetation / moisture (already normalised differences) ======
+  [cell 2, line 17] # Stack all S2 indices into one image
+  [cell 2, line 19] s2_ioi, s2_fii, s2_ci, s2_carbi,          # ratio indices
+  [cell 2, line 20] s2_ioi_nd, s2_fii_nd, s2_ci_nd,           # ND indices
+  [cell 2, line 21] s2_ndvi, s2_ndwi                          # veg/moisture
+  [cell 2, line 25] # Should show 9 bands: S2_IOI, S2_FII, S2_CI, S2_CarbI, S2_IOI_nd, S2_FII_nd, S2_CI_nd, S2_NDVI, S2_NDWI
+  [cell 3, line 1] # ====== Simple ratio indices (standard Landsat band mapping) ======
+  [cell 3, line 3] l8_fii   = landsat.select('SWIR1').divide(landsat.select('NIR')).rename('L8_FII')      # SWIR1/NIR for L8
+  [cell 3, line 7] # ====== Normalised‑difference versions ======
+  [cell 3, line 12] # ====== Vegetation / moisture ======
+  [cell 3, line 23] # Should show 9 bands: L8_IOI, L8_FII, L8_CI, L8_CarbI, L8_IOI_nd, L8_FII_nd, L8_CI_nd, L8_NDVI, L8_NDWI
+  [cell 4, line 1] # Landsat raw bands currently have the same names as Sentinel‑2 raw bands.
+  [cell 4, line 2] # To avoid Earth Engine automatically adding "_1" when concatenating,
+  [cell 4, line 3] # we rename them with a clear prefix.
+  [cell 4, line 11] # Output: ['L8_Blue', 'L8_Green', 'L8_Red', 'L8_NIR', 'L8_SWIR1', 'L8_SWIR2', 'L8_TIR']
+  [cell 5, line 2] s2_indices,       # 9 bands (S2 indices)
+  [cell 5, line 3] s2,               # 10 bands (S2 raw: Blue, Green, Red, NIR, RE1, RE2, RE3, RE4, SWIR1, SWIR2)
+  [cell 5, line 4] l8_indices,       # 9 bands (L8 indices)
+  [cell 5, line 5] landsat_renamed   # 7 bands (L8 raw: L8_Blue, L8_Green, L8_Red, L8_NIR, L8_SWIR1, L8_SWIR2, L8_TIR)
+  [cell 5, line 10] # Expected: 9 + 10 + 9 + 7 = 35 bands, all with unique names.
+  [cell 6, line 13] # Look for any band with null, negative extreme, or unrealistic values.
