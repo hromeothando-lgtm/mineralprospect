@@ -8,70 +8,30 @@
 ---
 
 ### Architecture
-Dual-branch patch-based CNN with stochastic deposition theorem encoding.
+Three-branch patch-based CNN with stochastic deposition theorem encoding and structural/topographic proxies.
 
 - **Branch 1 — Spectral** (15×15×35): Multi-scale CNN (3×3, 5×5, 7×7) + ResBlocks + CBAM
 - **Branch 2 — Stochastic** (15×15×24): 6 Local Singularity Index maps + 18 fractal maps (D_B + H + Λ)
-- **Fusion**: Cross-branch attention gate → MLP (384→256→128→64) → MC Dropout → Binary sigmoid
+- **Branch 3 — Terrain** (15×15×9): Slope, sin/cos aspect, profile/plan curvature, drainage density
+  (r1/r2/r3), TRI — derived from Copernicus GLO-30 DEM via pysheds
+- **Fusion**: Cross-branch attention gate (3-way, 448-d) → Fusion MLP (448→256→128→64) →
+  MC Dropout → Binary sigmoid (High/Low, Maximum Youden Index threshold)
 
 **Theoretical basis:**
-- Theorem 1: Singular Geo-Process (Cheng 2007) — LSI maps
-- Theorem 2: Multifractal Self-Similarity (Aguilar-Ayala 2024) — D_B, H, Λ
+- Theorem 1: Singular Geo-Process (Cheng, 2007, *Nonlinear Processes in Geophysics*) — LSI maps
+- Theorem 2: Multifractal Self-Similarity (Bergami et al., 2024, *Ore Geology Reviews*) — D_B, H, Λ
+- Structural/topographic control: drainage density and terrain ruggedness are top-ranked
+  proxies for orogenic gold systems, addressed via Branch 3
+
+Note: an earlier design phase included a fourth "Chaos" branch (Spatial Lyapunov Exponent /
+FTLE, based on Takens 1981 embedding theory). This branch was permanently removed — spatial
+Lyapunov exponents on a static raster composite cannot satisfy Takens' temporal reconstruction
+requirement, and Branch 3 (Terrain) was introduced in its place to capture structural control
+via geomorphologically grounded, non-chaos-theoretic proxies.
 
 ---
 
 ### Data
 - **Feature stack**: 35-band GEE asset (S2 + L8, 30m, EPSG:4326, dry-season 2019-2024)
 - **Positive labels**: 61 MRDS gold deposits, Zimbabwe
-- **Master raster**: 59 bands (35 spectral + 6 LSI + 18 fractal)
-
----
-
-### Repository Structure
-```
-data/
-  raw/          # Downloaded GeoTIFFs from GEE (gitignored)
-  processed/    # LSI maps, fractal maps, 59-band master raster
-  samples/      # Training CSVs, patch arrays
-
-notebooks/
-  01_gee_export.ipynb         # GEE data pipeline
-  02_lsi_computation.ipynb    # Singularity index maps (Theorem 1)
-  03_fractal_computation.ipynb # Fractal maps (Theorem 2)
-  04_master_raster.ipynb      # Stack to 59-band master raster
-  05_patch_extraction.ipynb   # Patch extraction + spatial CV split
-  06_relationship_analysis.ipynb # Pearson + MI + variogram + C-A fractal
-  07_model_training.ipynb     # FractalProspect-Net v4 training (Colab T4)
-  08_evaluation.ipynb         # Validation + blind test + geological overlay
-  09_prospectivity_map.ipynb  # Full Zimbabwe inference
-
-src/
-  data/         # GEE export, raster loading, patch extraction
-  features/     # LSI + fractal computation
-  models/       # FractalProspect-Net v4 architecture
-  training/     # Training loop, loss, optimiser
-  evaluation/   # Metrics, spatial CV, Youden threshold
-  visualization/ # SHAP, Grad-CAM, maps
-
-outputs/
-  models/       # Saved model weights (gitignored)
-  maps/         # Prospectivity + uncertainty rasters
-  figures/      # Publication figures
-  uncertainty/  # MC Dropout epistemic uncertainty maps
-```
-
----
-
-### Setup
-```bash
-conda activate mineralprospect
-pip install -r requirements.txt
-```
-
-### GEE Assets
-- Feature stack: `projects/mineral-prospectivity-zim/assets/feature_stack`
-- Deposits: `projects/mineral-prospectivity-zim/assets/mrds_zim_gold_clean`
-
----
-
-*Repo is PRIVATE during development. Will be made public + archived on Zenodo at submission.*
+- **Master raster**: 68 bands (35 spectral + 6 LSI + 18 fractal + 9 terrain)
